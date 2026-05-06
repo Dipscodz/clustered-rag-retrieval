@@ -84,6 +84,47 @@ python main.py
 
 ---
 
+1. System Architecture Diagram (Main Diagram)
+
+Use this in:
+
+Paper → Methodology section
+README → Architecture
+                ┌──────────────────────┐
+                │   Document Corpus    │
+                └─────────┬────────────┘
+                          ↓
+                ┌──────────────────────┐
+                │ Sentence Embeddings  │
+                └─────────┬────────────┘
+                          ↓
+                ┌──────────────────────┐
+                │   KMeans Clustering  │
+                └─────────┬────────────┘
+                          ↓
+                ┌──────────────────────┐
+                │  Clustered Documents │
+                └─────────┬────────────┘
+                          ↓
+        ┌────────────────────────────────────┐
+        │            User Query              │
+        └──────────────┬─────────────────────┘
+                       ↓
+           ┌──────────────────────────┐
+           │ Query Embedding          │
+           └──────────┬───────────────┘
+                      ↓
+           ┌──────────────────────────┐
+           │ Cluster Selection        │
+           └──────────┬───────────────┘
+                      ↓
+           ┌──────────────────────────┐
+           │ Document Retrieval       │
+           └──────────┬───────────────┘
+                      ↓
+           ┌──────────────────────────┐
+           │ Response Generation (LLM)│
+           └──────────────────────────┘
 ## 📈 Expected Results
 
 * Improved retrieval precision
